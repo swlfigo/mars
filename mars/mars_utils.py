@@ -306,13 +306,15 @@ def make_static_framework(src_lib, dst_framework, header_file_mappings, header_f
                   os.path.join(framework_path, dst, src[src.rfind("/") + 1:]))
 
     #Copy Module Map
-    for (src,dst) in XLOG_COPY_MOOUDLE_MAP_FILES.items():
-        if dst == "Modules":
-            copy_file(os.path.join(header_files_src_base, src),
-                  os.path.join(dst_framework, dst, src[src.rfind("/") + 1:]))
-        else:
-            copy_file(os.path.join(header_files_src_base, src),
-                  os.path.join(framework_path, dst, src[src.rfind("/") + 1:]))
+    #Add Module Map If you want
+    if False :
+        for (src,dst) in XLOG_COPY_MOOUDLE_MAP_FILES.items():
+            if dst == "Modules":
+                copy_file(os.path.join(header_files_src_base, src),
+                    os.path.join(dst_framework, dst, src[src.rfind("/") + 1:]))
+            else:
+                copy_file(os.path.join(header_files_src_base, src),
+                    os.path.join(framework_path, dst, src[src.rfind("/") + 1:]))
     
 
     return True
